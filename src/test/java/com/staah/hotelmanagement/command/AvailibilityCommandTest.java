@@ -14,13 +14,13 @@ class AvailibilityCommandTest {
 
 	@Test
 	void testQueryForAvailibility() {
-		AvailibilityCommand availibilityCommand = mock(AvailibilityCommand.class);
+		AvailibilityCommand availibilityCommand = new AvailibilityCommand();
 		CreateHotelObject hotelObject = mock(CreateHotelObject.class);
 		when(hotelObject.getHotelListFromJson()).thenReturn(new ArrayList<Hotel>());
 		CreateBookingObject bookingObject = mock(CreateBookingObject.class);
 		when(bookingObject.getActualBooking(new ArrayList<Hotel>())).thenReturn(new ArrayList<ActualBooking>());
 		int availibility = availibilityCommand.queryForAvailibility("H1", "20250903", "SGL");
-		assertEquals(0, availibility);
+		assertEquals(2, availibility);
 	}
 
 }

@@ -1,26 +1,27 @@
 package com.staah.hotelmanagement.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Hotel {
 	private String id;
 	private String name;
-	private ArrayList<RoomType> roomTypes;
-	private ArrayList<Room> rooms;
+	private List<RoomType> roomTypes;
+	private List<Room> rooms;
 
-	public ArrayList<RoomType> getRoomTypes() {
+	public List<RoomType> getRoomTypes() {
 		return roomTypes;
 	}
 
-	public void setRoomTypes(ArrayList<RoomType> roomTypes) {
-		this.roomTypes = roomTypes;
+	public void setRoomTypes(List<RoomType> roomType) {
+		this.roomTypes = roomType;
 	}
 
-	public ArrayList<Room> getRooms() {
+	public List<Room> getRooms() {
 		return rooms;
 	}
 
-	public void setRooms(ArrayList<Room> rooms) {
+	public void setRooms(List<Room> rooms) {
 		this.rooms = rooms;
 	}
 

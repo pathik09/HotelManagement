@@ -60,7 +60,6 @@ public class CreateBookingObject {
 	private RoomType addAvailibilityCountToRoomType(RoomType roomType, Hotel hotel) {
 		roomType.setAvailibilityCount(
 				hotel.getRooms().stream().filter(room -> room.getRoomType().equals(roomType.getCode())).count());
-
 		return roomType;
 	}
 

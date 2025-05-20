@@ -16,7 +16,7 @@ class SearchCommandTest {
 
 	@Test
 	void testSearchQuery() {
-		SearchCommand searchQuery = mock(SearchCommand.class);
+		SearchCommand searchQuery = new SearchCommand();
 		CreateHotelObject hotelObject = mock(CreateHotelObject.class);
 		when(hotelObject.getHotelListFromJson()).thenReturn(new ArrayList<Hotel>());
 		CreateBookingObject bookingObject = mock(CreateBookingObject.class);
