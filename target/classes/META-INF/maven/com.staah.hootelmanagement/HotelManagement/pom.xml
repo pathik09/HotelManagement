@@ -27,6 +27,9 @@
     <version>5.17.0</version>
     <scope>test</scope>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.powermock/powermock-module-junit4 -->
+<!-- https://mvnrepository.com/artifact/org.powermock/powermock-api-mockito -->
+
 </dependencies>
 <build>
     <plugins>
