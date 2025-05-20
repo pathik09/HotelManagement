@@ -23,6 +23,9 @@ public class ActualBooking {
 		RoomRate = roomRate;
 	}
 	
+	public ActualBooking() {
+		// TODO Auto-generated constructor stub
+	}
 	public List<LocalDate> getBookingDates() {
 		return bookingDates;
 	}

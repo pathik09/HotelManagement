@@ -19,22 +19,33 @@ import com.staah.hotelmanagement.model.ActualBooking;
 import com.staah.hotelmanagement.model.Hotel;
 import com.staah.hotelmanagement.utility.Utility;
 
+/**
+ * 
+ */
+/**
+ * 
+ */
 public class SearchCommand {
 	File hotelFile = new File(this.getClass().getClassLoader().getResource("hotels.json").getFile());
 	List<Hotel> hotelList = new ArrayList<Hotel>();
 	Utility utility = new Utility();
 
+	/**
+	 * @param hotelId
+	 * @param days
+	 * @param roomType
+	 * @return This method gives a result as a searchResultList as mentioned in the requirement.
+	 */
 	public List<SearchResult> searchQuery(String hotelId, int days, String roomType)
 
 	{
 		CreateBookingObject bookingObject = new CreateBookingObject();
 		CreateHotelObject hotelObject = new CreateHotelObject();
-		List<Hotel> hotelList = hotelObject.getHotelListFromJson();
-		List<ActualBooking> actualBookingList = bookingObject.getActualBooking(hotelList);
+		List<Hotel> hotelList = hotelObject.getHotelListFromJson();//for getting hotellist from json.
+		List<ActualBooking> actualBookingList = bookingObject.getActualBooking(hotelList);//for getting bookinglist from json
 		List<LocalDate> enquiryDates = new ArrayList<LocalDate>();
 		enquiryDates = utility.getDatesForDaysCount(days);
-		List<ActualBooking> updatedBookingList = new ArrayList<ActualBooking>();
-
+		
 		List<LocalDate> bookingDates = new ArrayList<LocalDate>();
 		for (ActualBooking ab : actualBookingList) {
 			bookingDates.addAll(ab.getBookingDates());
@@ -42,7 +53,7 @@ public class SearchCommand {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 		List<SearchResult> searchResultList = new ArrayList<SearchResult>();
 		Map<LocalDate, Long> frequencyBookingMap = bookingDates.stream()
-				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));//for getting the map of how many times the date is repeated.
 		enquiryDates.stream().forEach(e -> {
 			if (bookingDates.contains(e)) {
 				SearchResult searchResult = new SearchResult(e.format(formatter),
@@ -55,7 +66,7 @@ public class SearchCommand {
 				searchResultList.add(searchResult);
 
 			}
-		});
+		});//for getting the actual availibilityon the mentioned date
 		AtomicInteger initialValue = new AtomicInteger(0);
 		List<SearchResult> updatedSearchResultStream = new ArrayList<SearchResult>();
 		IntStream.range(0, searchResultList.size()).forEach(i -> {
@@ -77,11 +88,11 @@ public class SearchCommand {
 				}
 			}
 
-		});
+		});//for converting the data to a desired state as required.
 		updatedSearchResultStream.stream().forEach(searchResult -> {
 			System.out.print("(" + searchResult.getDateRange() + "," + searchResult.getAvailibilityCount() + ")");
 
-		});
+		});//for printing the data as per requirement.
 		return searchResultList;
 
 	}

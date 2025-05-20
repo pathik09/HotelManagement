@@ -12,13 +12,21 @@ import com.google.gson.reflect.TypeToken;
 import com.staah.hotelmanagement.model.Hotel;
 
 
+/**
+ * 
+ */
 public class CreateHotelObject {
 
-	List<Hotel> hotelList = new ArrayList<Hotel>();
 
-	File hotelFile = new File(this.getClass().getClassLoader().getResource("hotels.json").getFile());
 
+	
+
+	/**
+	 * @returnThis method will return the hotel list from json.
+	 */
 	public List<Hotel> getHotelListFromJson() {
+		
+		File hotelFile = new File(this.getClass().getClassLoader().getResource("hotels.json").getFile());
 		List<Hotel> hotels = new ArrayList<Hotel>();
 		try {
 			Gson gson = new Gson();
@@ -26,12 +34,18 @@ public class CreateHotelObject {
 			Type listType = new TypeToken<List<Hotel>>() {
 			}.getType();
 			hotels = gson.fromJson(reader, listType);
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("Hotels.json not available.");
 		}
 		return hotels;
 	}
 
+	/**
+	 * @param hotelId
+	 * @param hotelList
+	 * @returnThis method will give the hotel with the provided hotelid.
+	 */
 	public Hotel getHotelById(String hotelId, List<Hotel> hotelList) {
 		return hotelList.stream().filter(h -> hotelId.equalsIgnoreCase(h.getId())).findFirst().orElse(null);
 

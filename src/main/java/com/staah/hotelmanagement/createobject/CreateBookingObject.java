@@ -16,11 +16,17 @@ import com.staah.hotelmanagement.utility.Utility;
 
 public class CreateBookingObject {
 	File hotelFile = new File(this.getClass().getClassLoader().getResource("hotels.json").getFile());
-	File bookingFile = new File(this.getClass().getClassLoader().getResource("bookings.json").getFile());
+	
 	List<ActualBooking> bookingList = new ArrayList<ActualBooking>();
 	CreateHotelObject hotelObject = new CreateHotelObject();
 	Utility utility = new Utility();
 
+	/**
+	 * @param hotelId
+	 * @param roomRate
+	 * @param hotelList
+	 * @return Returns roomtype for the mentioned hotelid and roomrate.
+	 */
 	public RoomType getRoomType(String hotelId, String roomRate, List<Hotel> hotelList) {
 		Hotel hotel = hotelObject.getHotelById(hotelId, hotelList);
 		return addAvailibilityCountToRoomType(
@@ -28,14 +34,17 @@ public class CreateBookingObject {
 				hotel);
 	}
 
+	/**
+	 * @return this method will return the raw booking list.
+	 */
 	private List<Booking> getBookingListFromJson() {
+		File bookingFile = new File(this.getClass().getClassLoader().getResource("bookings.json").getFile());
 		List<Booking> bookings = new ArrayList<Booking>();
 		try {
 			Gson gson = new Gson();
 			FileReader reader = new FileReader(bookingFile);
 			Type listType = new TypeToken<List<Booking>>() {
 			}.getType();
-
 			bookings = gson.fromJson(reader, listType);
 		} catch (FileNotFoundException e) {
 			System.out.println("Booking.json not available");
@@ -43,6 +52,11 @@ public class CreateBookingObject {
 		return bookings;
 	}
 
+	/**
+	 * @param roomType
+	 * @param hotel
+	 * @return This method sets the availibility count to the proper value.
+	 */
 	private RoomType addAvailibilityCountToRoomType(RoomType roomType, Hotel hotel) {
 		roomType.setAvailibilityCount(
 				hotel.getRooms().stream().filter(room -> room.getRoomType().equals(roomType.getCode())).count());
@@ -50,6 +64,10 @@ public class CreateBookingObject {
 		return roomType;
 	}
 
+	/**
+	 * @param hotelList
+	 * @return this method will return the actual booking list with objects.
+	 */
 	public List<ActualBooking> getActualBooking(List<Hotel> hotelList) {
 		List<Booking> rawBookingList = getBookingListFromJson();
 		return rawBookingList.stream()
