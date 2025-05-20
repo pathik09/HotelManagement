@@ -15,22 +15,17 @@ class ActualBookingTest {
 		Hotel hotel = new Hotel();
 		hotel.setId("H1");
 		actualBooking.setHotel(hotel);
-		assertEquals(actualBooking.getHotel().getId(),"H1");
+		assertEquals(actualBooking.getHotel().getId(), "H1");
 	}
 
-	
-
-	
 	@Test
 	void testGetAndSetBookingDates() {
 		ActualBooking actualBooking = new ActualBooking();
 		List<LocalDate> bookingDates = new ArrayList<LocalDate>();
 		actualBooking.setBookingDates(bookingDates);
-		assertEquals(actualBooking.getBookingDates().size(),0);
-		
-	}
+		assertEquals(actualBooking.getBookingDates().size(), 0);
 
-	
+	}
 
 	@Test
 	void testGetAndSetRoomType() {
@@ -41,16 +36,12 @@ class ActualBookingTest {
 		assertEquals(actualBooking.getRoomType().getAvailibilityCount(), 1);
 	}
 
-	
-
 	@Test
 	void testGetAndRoomRate() {
 		ActualBooking actualBooking = new ActualBooking();
 		actualBooking.setRoomRate("Standard");
-		assertEquals(actualBooking.getRoomRate(),"Standard");
-		
-		
+		assertEquals(actualBooking.getRoomRate(), "Standard");
+
 	}
 
-	
 }

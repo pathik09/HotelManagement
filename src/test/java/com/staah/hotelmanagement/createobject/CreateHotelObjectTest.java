@@ -20,10 +20,8 @@ class CreateHotelObjectTest {
 		Gson gson = Mockito.mock(Gson.class);
 		FileReader fileReader = Mockito.mock(FileReader.class);
 		TypeToken type = Mockito.mock(TypeToken.class);
-	    Mockito.when(gson.fromJson(fileReader, type)).thenReturn(new ArrayList<Booking>());
+		Mockito.when(gson.fromJson(fileReader, type)).thenReturn(new ArrayList<Booking>());
 		assertNotNull(hotelObject.getHotelListFromJson());
 	}
-
-	
 
 }

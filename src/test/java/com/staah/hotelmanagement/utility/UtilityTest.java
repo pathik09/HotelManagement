@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 class UtilityTest {
-	
 
 	@Test
 	void testGetDatesBetween() {
@@ -18,8 +17,7 @@ class UtilityTest {
 		Utility utility = new Utility();
 		List<LocalDate> dateList = utility.getDatesBetween(date1, date2);
 		assertNotNull(dateList);
-		
-	
+
 	}
 
 	@Test
@@ -29,7 +27,7 @@ class UtilityTest {
 		Utility utility = new Utility();
 		List<LocalDate> dateList = utility.getDaterange(date1, date2);
 		assertNotNull(dateList);
-		
+
 	}
 
 	@Test
@@ -37,8 +35,7 @@ class UtilityTest {
 		Utility utility = new Utility();
 		List<LocalDate> dateList = utility.getDatesForDaysCount(2);
 		assertNotNull(dateList);
-		
-		
+
 	}
 
 }

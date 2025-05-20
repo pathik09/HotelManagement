@@ -25,17 +25,17 @@ public class Utility {
 		return getDatesBetween(arrivalDate, departureDate);
 
 	}
-	public List<LocalDate> getDatesForDaysCount(int days){
+
+	public List<LocalDate> getDatesForDaysCount(int days) {
 		List<LocalDate> dates = new ArrayList<>();
 		LocalDate startDate = LocalDate.now();
-		
-		
+
 		for (int i = 0; i <= days; i++) {
 			LocalDate date = startDate.plusDays(i);
 			dates.add(date);
 		}
 		return dates;
-		
+
 	}
 
 }

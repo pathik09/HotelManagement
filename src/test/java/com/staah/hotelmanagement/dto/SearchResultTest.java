@@ -8,7 +8,7 @@ class SearchResultTest {
 
 	@Test
 	void testSearchResult() {
-		SearchResult searchResult = new SearchResult("",0);
+		SearchResult searchResult = new SearchResult("", 0);
 		assertNotNull(searchResult);
 	}
 
@@ -19,15 +19,12 @@ class SearchResultTest {
 		assertEquals(searchResult.getDateRange(), "DateRange");
 	}
 
-	
-
 	@Test
 	void testGetAndSetAvailibilityCount() {
 		SearchResult searchResult = new SearchResult();
 		searchResult.setAvailibilityCount(0);
-		assertEquals(searchResult.getAvailibilityCount(),0);
-		
-	}
+		assertEquals(searchResult.getAvailibilityCount(), 0);
 
+	}
 
 }

@@ -9,10 +9,6 @@ public class RoomType {
 	private ArrayList<String> amenities;
 	private long availibilityCount;
 
-
-
-	
-
 	public long getAvailibilityCount() {
 		return availibilityCount;
 	}
@@ -52,6 +48,5 @@ public class RoomType {
 	public void setAmenities(ArrayList<String> amenities) {
 		this.amenities = amenities;
 	}
-	
 
 }

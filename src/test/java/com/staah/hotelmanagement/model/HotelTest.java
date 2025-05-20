@@ -14,34 +14,29 @@ class HotelTest {
 		Hotel hotel = new Hotel();
 		ArrayList<RoomType> listRoomType = new ArrayList<RoomType>();
 		hotel.setRoomTypes(listRoomType);
-		assertEquals(hotel.getRoomTypes().size(),0);
+		assertEquals(hotel.getRoomTypes().size(), 0);
 	}
 
-	
 	@Test
 	void testGetAndSetRooms() {
 		Hotel hotel = new Hotel();
 		ArrayList<Room> listRoom = new ArrayList<Room>();
 		hotel.setRooms(listRoom);
-		assertEquals(hotel.getRooms().size(),0);
+		assertEquals(hotel.getRooms().size(), 0);
 	}
 
-	
 	@Test
 	void testGetAndSetId() {
 		Hotel hotel = new Hotel();
 		hotel.setId("H1");
-		assertEquals(hotel.getId(),"H1");
+		assertEquals(hotel.getId(), "H1");
 	}
 
-	
 	@Test
 	void testGetAndSetName() {
 		Hotel hotel = new Hotel();
 		hotel.setName("H1");
-		assertEquals(hotel.getName(),"H1");
+		assertEquals(hotel.getName(), "H1");
 	}
-
-	
 
 }

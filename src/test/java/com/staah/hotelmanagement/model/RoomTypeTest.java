@@ -11,29 +11,24 @@ class RoomTypeTest {
 
 	@Test
 	void testGetAndSetAvailibilityCount() {
-		RoomType roomType= new RoomType();
+		RoomType roomType = new RoomType();
 		roomType.setAvailibilityCount(1);
-		assertEquals(roomType.getAvailibilityCount(),1);
-		
+		assertEquals(roomType.getAvailibilityCount(), 1);
+
 	}
-
-
-	
 
 	@Test
 	void testSetAndGetCode() {
-		RoomType roomType= new RoomType();
+		RoomType roomType = new RoomType();
 		roomType.setCode("SGL");
-		assertEquals(roomType.getCode(),"SGL");
+		assertEquals(roomType.getCode(), "SGL");
 	}
-
-	
 
 	@Test
 	void testSetAndGetDescription() {
-		RoomType roomType= new RoomType();
+		RoomType roomType = new RoomType();
 		roomType.setDescription("Single Room");
-		assertEquals(roomType.getDescription(),"Single Room");
+		assertEquals(roomType.getDescription(), "Single Room");
 	}
 
 	@Test
@@ -41,19 +36,16 @@ class RoomTypeTest {
 		RoomType roomType = new RoomType();
 		ArrayList<String> features = new ArrayList<String>();
 		roomType.setFeatures(features);
-		assertEquals(roomType.getFeatures().size(),0);
+		assertEquals(roomType.getFeatures().size(), 0);
 	}
 
-	
 	@Test
 	void testGetAndSetAmenities() {
 		RoomType roomType = new RoomType();
 		ArrayList<String> amenities = new ArrayList<String>();
 		roomType.setAmenities(amenities);
-		assertEquals(roomType.getAmenities().size(),0);
-		
-	}
+		assertEquals(roomType.getAmenities().size(), 0);
 
-	
+	}
 
 }

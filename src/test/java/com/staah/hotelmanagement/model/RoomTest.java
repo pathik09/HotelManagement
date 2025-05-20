@@ -13,15 +13,11 @@ class RoomTest {
 		assertEquals(room.getRoomType(), "DBL");
 	}
 
-	
-
 	@Test
 	void testGetAndSetRoomId() {
 		Room room = new Room();
 		room.setRoomId("101");
 		assertEquals(room.getRoomId(), "101");
 	}
-
-	
 
 }

@@ -16,7 +16,7 @@ import com.staah.hotelmanagement.utility.Utility;
 
 public class CreateBookingObject {
 	File hotelFile = new File(this.getClass().getClassLoader().getResource("hotels.json").getFile());
-	
+
 	List<ActualBooking> bookingList = new ArrayList<ActualBooking>();
 	CreateHotelObject hotelObject = new CreateHotelObject();
 	Utility utility = new Utility();
